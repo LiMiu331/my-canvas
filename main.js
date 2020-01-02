@@ -10,11 +10,33 @@ listenToUser(canvas)
 var usingEraser = false
 eraser.onclick = function () {
     usingEraser = true
-    actions.className = 'actions x'
+    eraser.classList.add('active')
+    pen.classList.remove('active')
 }
-brush.onclick = function () {
+pen.onclick = function () {
     usingEraser = false
-    actions.className = 'actions'
+    pen.classList.add('active')
+    eraser.classList.remove('active')
+
+}
+//4.画笔
+red.onclick = function () {
+    context.strokeStyle = 'red'
+    red.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
+green.onclick = function () {
+    context.strokeStyle = 'green'
+    green.classList.add('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+}
+blue.onclick = function () {
+    context.strokeStyle = 'blue'
+    blue.classList.add('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
 }
 //-------------------------------下方为工具函数-----------------------
 
@@ -37,7 +59,6 @@ function autoSetCanvasSize(canvasid) {
 //画线
 function drawline(x1, y1, x2, y2) {
     context.beginPath();
-    context.strokeStyle = 'black'
     context.moveTo(x1, y1) //起点
     context.lineWidth = 5
     context.lineTo(x2, y2) //终点
@@ -56,7 +77,7 @@ function listenToUser(canvasid) {
             console.log(x,y)
             using = true
             if (usingEraser) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 5, y - 5, 30, 30)
             } else {
                 lastPonit = {
                     "x": x,
@@ -73,7 +94,7 @@ function listenToUser(canvasid) {
             
             if (usingEraser) {
                 
-                    context.clearRect(x - 5, y - 5, 10, 10)
+                    context.clearRect(x - 5, y - 5, 30, 30)
               
             } else {
                     NewPoint = {
@@ -96,7 +117,7 @@ function listenToUser(canvasid) {
             var y = down.clientY
             using = true
             if (usingEraser) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 5, y - 5, 30, 30)
             } else {
                 lastPonit = {
                     "x": x,
@@ -114,7 +135,7 @@ function listenToUser(canvasid) {
             
             if (usingEraser) {
                 
-                    context.clearRect(x - 5, y - 5, 10, 10)
+                    context.clearRect(x - 5, y - 5, 30, 30)
               
             } else {
                     NewPoint = {
