@@ -1,3 +1,4 @@
-##一个简易的画板
+一个简易的画板
+===========================
 
-预览：https://limiu331.github.io/my-canvas/index.html
+预览地址：https://limiu331.github.io/my-canvas/index.html
