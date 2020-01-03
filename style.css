@@ -20,6 +20,9 @@ body {
 #canvas {
 
     background:white;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .actions {
@@ -67,3 +70,23 @@ body {
     transform: scale(1.2);
     
 }
+.sizes{
+    position: fixed;
+    right: 15px;
+    top: 164px;
+    
+}
+
+.sizes > .thin{
+height: 0px;
+width: 15px;
+border-top: 3px solid black;
+}
+.sizes > li{
+    margin: 20px 0px;
+}
+.sizes > .thick{
+    height: 0px;
+    width: 15px;
+    border-top: 10px solid black;
+    }

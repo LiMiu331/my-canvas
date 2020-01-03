@@ -1,5 +1,7 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+var lineWidth = 5
+
 //1.控制画板宽高
 autoSetCanvasSize(canvas)
 
@@ -38,6 +40,26 @@ blue.onclick = function () {
     red.classList.remove('active')
     green.classList.remove('active')
 }
+thin.onclick = function () {
+    lineWidth = 5
+}
+thick.onclick = function () {
+    lineWidth = 10
+}
+//垃圾桶
+clear.onclick = function () {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+//导出
+save.onclick = function () {
+    var url = canvas.toDataURL("image/png")
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'save'
+    a.target='_blank'
+    a.click()
+}
 //-------------------------------下方为工具函数-----------------------
 
 //控制画板宽高
@@ -60,7 +82,7 @@ function autoSetCanvasSize(canvasid) {
 function drawline(x1, y1, x2, y2) {
     context.beginPath();
     context.moveTo(x1, y1) //起点
-    context.lineWidth = 5
+    context.lineWidth = lineWidth
     context.lineTo(x2, y2) //终点
     context.stroke()
 }
